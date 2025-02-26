@@ -1,0 +1,6 @@
+
+# Root directory for the code
+code_root = "/allen/aind/scratch/shuonan.chen/code/pons_merfish_pipeline/processing/"
+
+# Root directory for the data
+data_root = "/allen/aind/scratch/shuonan.chen/pons_images/"
