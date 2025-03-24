@@ -25,15 +25,7 @@ MERFISH registration and analysis
     # Root directory for the data
     data_root = "yourpath/merfish_images/"
     ```
-2. create images with neurons location (`00_preparedat.ipynba`)
-    ```
-    rsync -a hpc-login:/allen/aind/scratch/shuonan.chen/code/pons_merfish_pipeline/processing/filt_neurons ~/Documents/projecty/merfish_register/go_register_w_QuickNiii/2025more_brain/
-    ```
-
-    ```
-    rsync -a hpc-login:/allen/aind/scratch/shuonan.chen/code/pons_merfish_pipeline/processing/image_xml ~/Documents/projecty/merfish_register/go_register_w_QuickNiii/2025more_brain/
-    ```
-
+2. create images with neurons location (`00_preparedata.ipynb`)
 3. quicknii -- needs to save json and xml
 4. visualign 
 5. inverse the learned transformation (`01_apply_invert.ipynb`)
