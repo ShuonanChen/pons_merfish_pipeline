@@ -1,9 +1,30 @@
 # pons_merfish_pipeline
 MERFISH registration and analysis
 
+## registration:
+### Input:  
+- Raw images (tif files) of polyT or DAPI  
+- Cells locations (N x 3) 
+- Cells gene expression (N x G) 
+
+### Tools needed: 
+- Some clustering method (simple de novo clustering)
+    - this is just to visualize your cells in different colors during the registration
+- Filbuilder (may come with QuickNII)
+- QuickNII. 2017 mouse version  
+- Visualign  
 
 
-1. create config.toml file 
+
+### steps
+1. create config.toml file. example:
+    ```    
+    # Root directory for the code
+    code_root = "yourpath/pons_merfish_pipeline/processing/"
+    
+    # Root directory for the data
+    data_root = "yourpath/merfish_images/"
+    ```
 2. create images with neurons location (`00_preparedat.ipynba`)
     ```
     rsync -a hpc-login:/allen/aind/scratch/shuonan.chen/code/pons_merfish_pipeline/processing/filt_neurons ~/Documents/projecty/merfish_register/go_register_w_QuickNiii/2025more_brain/
