@@ -1,2 +1,21 @@
-result_pngs
-image_xml
+# Data files
+*.npy
+*.npz
+*.tiff
+*.tif
+*.zarr/
+/data/
+
+# Generated results
+/results/
+/output/
+/figures/
+
+# Environment
+.env
+venv/
+__pycache__/
+*.pyc
+
+# Notebooks
+.ipynb_checkpoints/
