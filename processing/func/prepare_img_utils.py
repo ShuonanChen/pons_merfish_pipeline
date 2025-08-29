@@ -7,7 +7,7 @@ import xml.etree.ElementTree as ET
 import skimage.transform
 import tifffile
 import logging
-
+import anndata
     
 
 # Setup logging
@@ -46,7 +46,7 @@ def run_denovo_cluster(countmatrix_path):
     """
     try:
         count_mtx = pd.read_csv(countmatrix_path, index_col=0).sort_index()
-        adata_mer = sc.AnnData(count_mtx)
+        adata_mer = anndata.AnnData(count_mtx)
         sc.pp.normalize_total(adata_mer)
         sc.pp.log1p(adata_mer)
         sc.tl.pca(adata_mer)
