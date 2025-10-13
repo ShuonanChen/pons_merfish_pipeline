@@ -1,2 +1,3 @@
-result_pngs
-image_xml
+*
+!.gitignore
+/processing/filt_neurons/

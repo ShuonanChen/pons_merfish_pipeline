@@ -140,20 +140,10 @@ def forwardtransform(triangulation,x,y):
              +(triangle.B[3]-triangle.A[3])*uv1[0]
              +(triangle.C[3]-triangle.A[3])*uv1[1])
 
-def get_adjusted_points(df):
-    slice_num = df['slice'].iloc[0]
-    jpg_file=name_df[name_df['slicenum']==slice_num]['json_name'].values[0]
-    s = details.get(jpg_file)
-    width = s['width']
-    height = s['height']
-    triangulation = triangulate(width,height,s["markers"])
-    return df.apply(lambda x: pd.Series(transform(triangulation, x['rescale_x'], x['rescale_y'])), axis = 1)
 
 
-
-
-def get_quicknii_cord(slice_num, df,height,width):
-    image_file = name_df[name_df['slicenum']==slice_num]['json_name'].iloc[0]
+def get_quicknii_cord(slice_num, df,name_df,anchor,height,width):
+    image_file = name_df[name_df['slicenum']==slice_num]['json_name'].iloc[0].split('/')[-1]
     record=anchor[anchor['filename']==image_file].iloc[0]
     matrix_1=np.array([[record['ux'],record['uy'],record['uz']],[record['vx'],record['vy'],record['vz']],[record['ox'],record['oy'],record['oz']]])
     i = df[['adjusted_x']].values/width
@@ -172,9 +162,9 @@ def get_vox_cord(df, vox_size=25):
 
 
 
-def get_adjusted_points(df):
+def get_adjusted_points(df,name_df,details):
     slice_num = df['slice'].iloc[0]
-    jpg_file=name_df[name_df['slicenum']==slice_num]['json_name'].values[0]
+    jpg_file=name_df[name_df['slicenum']==slice_num]['json_name'].values[0].split('/')[-1]
     s = details.get(jpg_file)
     width = s['width']
     height = s['height']
